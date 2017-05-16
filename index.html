@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>平滑滚动</title>
+    <style>
+        ul img{
+            width:200px;
+            height:200px;
+        }
+        .outer{
+            width:1000px;
+            height:200px;
+            position:relative;
+            overflow:hidden;
+            margin:100px auto;
+        }
+        .outer ul{
+            position:absolute;
+            left:0;
+            top:0;
+            width:2000px;
+            height:200px;
+            padding:0;
+        }
+        ul>li{
+            float:left;
+        }
+
+    </style>
+</head>
+<body>
+<input type="button" value="左滚" onclick="moveLeft()">
+<input type="button" value="右滚" onclick="moveRight()">
+<div class="outer">
+    <ul>
+        <li><img src="images/index1.jpg" alt=""></li>
+        <li><img src="images/index2.jpg" alt=""></li>
+        <li><img src="images/index3.jpg" alt=""></li>
+        <li><img src="images/index5.jpg" alt=""></li>
+        <li><img src="images/index8.jpg" alt=""></li>
+        <li><img src="images/index1.jpg" alt=""></li>
+        <li><img src="images/index2.jpg" alt=""></li>
+        <li><img src="images/index3.jpg" alt=""></li>
+        <li><img src="images/index5.jpg" alt=""></li>
+        <li><img src="images/index8.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    var oUl=document.getElementsByTagName("ul")[0];
+    var speed=-2;
+    var timer=null;
+    function move(){
+        console.log(-oUl.offsetWidth/2);
+        console.log(oUl.style.left);
+        console.log(oUl.offsetLeft);
+        if(parseInt(oUl.style.left)<-oUl.offsetWidth/2){
+            oUl.style.left="0";
+        }
+        if(parseInt(oUl.style.left)>0){
+            oUl.style.left=-oUl.offsetWidth/2+'px';
+        }
+        oUl.style.left=oUl.offsetLeft+speed+"px";
+    }
+    timer=setInterval(move,30);
+    var oDiv= document.getElementsByClassName('outer')[0];
+    oDiv.onmouseover=function(){
+        clearInterval(timer)
+    };
+    oDiv.onmouseleave=function(){
+        timer=setInterval(move,30);
+    };
+    function moveLeft(){
+        speed=-2;
+    }
+    function moveRight(){
+        speed=2;
+    }
+</script>
+</body>
+</html>
