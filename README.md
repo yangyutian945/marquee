@@ -5,7 +5,7 @@
 1.新建一个repo
 2.新建一个index.html
 
-##如何预览
+## 如何预览
 
-点击
-效果预览的图片请自行添加
+点击 https://yangyutian945.github.io/marquee20170516/
+（效果预览的图片请自行添加）
