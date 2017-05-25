@@ -8,5 +8,5 @@
 
 ## 如何预览
 
-点击 https://yangyutian945.github.io/20170522/index.html 即可预览
+点击 https://yangyutian945.github.io/marquee/ 即可预览
 
